@@ -1,46 +1,73 @@
-import type { Metadata } from "next";
+"use client";
+
+
+
+import { useState } from "react";
+
 import { Geist, Geist_Mono } from "next/font/google";
+
 import "@/app/globals.css";
+
 import { ThemeProvider } from "@/components/theme-provider";
+
 import { HeroHeader } from "@/components/header";
-import Footer from "@/components/footer"; // Memanggil desain visual Footer
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import Footer from "@/components/footer";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import LoadingScreen from "@/components/motion-primitives/LoadingScreen";
 
-export const metadata: Metadata = {
-  title: "Muhammad Fariq Firmansyah",
-  description: "Personal portfolio of Muhammad Fariq Firmansyah, a Telecommunication Engineer and IoT Developer.",
-};
+import { AnimatePresence } from "motion/react";
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+
+
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+
+
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+  const [loading, setLoading] = useState(true);
+
+
+
   return (
+
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <HeroHeader />
-          {children}
-          <Footer /> {/* Footer dipasang di paling bawah website */}
+
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+
+          <AnimatePresence mode="wait">
+
+            {loading ? (
+
+              <LoadingScreen key="loading" onFinish={() => setLoading(false)} />
+
+            ) : (
+
+              <div key="content">
+
+                <HeroHeader />
+
+                {children}
+
+                <Footer />
+
+              </div>
+
+            )}
+
+          </AnimatePresence>
+
         </ThemeProvider>
+
       </body>
+
     </html>
+
   );
+
 }
