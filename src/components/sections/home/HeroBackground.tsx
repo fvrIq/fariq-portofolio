@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+// PERBAIKAN: Mengubah "motion/react" menjadi "framer-motion"
 import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 
 // ─── Generate Style ───────────────────────────────────────────

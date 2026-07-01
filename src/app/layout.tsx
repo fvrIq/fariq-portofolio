@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { HeroHeader } from "@/components/header";
+import Footer from "@/components/footer"; // Memanggil desain visual Footer
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
         >
           <HeroHeader />
           {children}
+          <Footer /> {/* Footer dipasang di paling bawah website */}
         </ThemeProvider>
       </body>
     </html>

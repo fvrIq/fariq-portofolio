@@ -1,11 +1,14 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
 import { motion } from "motion/react";
-import LogoCloud from "@/components/sections/home/logo-cloud";
-import HeroBackground from "@/components/sections/home/HeroBackground";
+
+// HeroBackground masih kita comment dulu untuk memastikan aman
+ import HeroBackground from "@/components/sections/home/HeroBackground";
 
 const transitionVariants = {
   item: {
@@ -21,13 +24,10 @@ const transitionVariants = {
 
 export default function HeroSection() {
   return (
-    // Menggunakan h-[100dvh] agar akurat di layar HP modern
     <section className="relative overflow-hidden h-[100svh] w-full flex items-center">
       
-      {/* Background */}
       <HeroBackground />
 
-      {/* Content */}
       <div className="relative z-20 mx-auto w-full max-w-[1500px] px-6 sm:px-8 lg:px-16">
         <div className="relative z-20 max-w-[640px] w-full">
           
@@ -41,7 +41,7 @@ export default function HeroSection() {
             THIS WHERE YOU ARE
           </TextEffect>
 
-          {/* Heading - Diperbaiki agar tidak overlap */}
+          {/* Heading */}
           <div className="flex flex-col gap-1 sm:gap-0 tracking-[-0.05em]">
             <TextEffect
               preset="fade-in-blur"
