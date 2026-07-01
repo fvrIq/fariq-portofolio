@@ -1,18 +1,18 @@
 {
-  "name": "lume-studio",
+  "name": "fariq-portfolio",
   "version": "0.1.0",
-  "description": "A Design agency template built with Next.js.",
+  "description": "Personal Engineering Portfolio of Muhammad Fariq Firmansyah",
   "keywords": [
-    "kohi studio",
+    "portfolio",
     "nextjs",
-    "template",
-    "free nextjs template"
+    "telecommunication engineer",
+    "iot developer"
   ],
-  "author": "Kohi Studio",
+  "author": "Muhammad Fariq Firmansyah",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kohistudio/lume-studio-template"
+    "url": "https://github.com/fvrIq/fariq-portfolio"
   },
   "private": true,
   "scripts": {
